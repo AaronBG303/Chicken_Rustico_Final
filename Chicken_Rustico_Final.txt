@@ -5,221 +5,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Rustico Recipe</title>
-    		<style>
-        		/* Resetting margins and box-sizing */
-        		* 
-			{
-            			margin: 0;
-            			padding: 0;
-            			box-sizing: border-box;
-        		}
+    <style>
+        /* Resetting margins and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        		/* Body styling with rustic Italian background */
-        		body 
-			{
-            			font-family: Arial, sans-serif;
-            			line-height: 1.6;
-            			color: #333;
-            			background: linear-gradient(135deg, #d6ba8b, #f5e6cc);
-            			padding: 20px;
-            			display: flex;
-            			justify-content: center;
-            			position: relative;
-        		}
+        /* Body styling with rustic Italian background */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #d6ba8b, #f5e6cc);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
 
-        		/* Semi-transparent overlay to soften the background */
-        		body::before 	
-			{
-            			content: "";
-            			position: fixed;
-            			top: 0;
-            			left: 0;
-            			width: 100%;
-            			height: 100%;
-            			background-image: url("Italy.jpg"); /* Remember to include pic of Italy */
-            			background-size: cover;
-            			background-position: center;
-            			opacity: 0.25; /* Adjust this value to change opacity (0 = fully transparent, 1 = fully 				opaque) */
-            			z-index: -1; /* Ensure the overlay is behind the content */
-        		}
+        /* Semi-transparent overlay to soften the background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("Italy.jpg"); /* Include a picture of Italy */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: -1;
+        }
 
-        		/* Container styling with Flexbox */
-        		.container 
-			{
-            			max-width: 800px;
-            			background-color: #fff;
-            			padding: 50px;
-            			border-radius: 8px;
-            			border: 1px solid #d6ba8b; /* Rustic border color */
-            			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            
-            			/* Flexbox properties */
-            			display: flex;
-            			flex-direction: column; /* Arrange items vertically */
-            			align-items: center; /* Center align all child elements */
-            			gap: 20px; /* Space between items */
-        		}
+        /* Container styling with Flexbox */
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            border: 1px solid #d6ba8b;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
 
-        		/* Header and section styling */
-        		h1 
-			{
-            			color: #bf6b30;
-            			text-align: center;
-            			margin-bottom: 10px;
-        		}
+        /* Header and section styling */
+        h1 {
+            color: #bf6b30;
+            text-align: center;
+            margin-bottom: 10px;
+        }
 
-        		h2 
-			{
-            			color: #d68e59;
-            			border-bottom: 2px solid #d68e59;
-            			padding-bottom: 5px;
-            			margin-top: 20px;
-            			margin-bottom: 10px;
-            			text-align: center;
-        		}
+        h2 {
+            color: #d68e59;
+            border-bottom: 2px solid #d68e59;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
 
-        		/* Styling for the ingredients and instructions list */
-        		ul 
-			{
-            			margin: 10px 0 20px 20px;
-        		}
+        /* Styling for the ingredients and instructions list */
+        ul {
+            margin: 10px 0 20px 20px;
+        }
 
-        		li 
-			{
-            			margin-bottom: 5px;
-        		}
+        li {
+            margin-bottom: 5px;
+        }
 
-        		/* Checkbox styling */
-        		.ingredient-item 
-			{
-            			display: flex;
-            			align-items: center;
-            			gap: 10px;
-        		}
+        /* Checkbox styling */
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        		/* Center paragraph text */
-        		.container > section p 
-			{
-            			text-align: center;
-        		}
+        /* Center paragraph text */
+        .container > section p {
+            text-align: center;
+        }
 
-        		/* Image styling with fading effect to blend with the background */
-        		.recipe-image 
-			{
-            			width: 80%; /* Scale down for a softer fit */
-            			height: auto;
-            			border-radius: 8px;
-            			position: relative;
-            			/* Apply the fade effect around the perimeter of the image */
-            			mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 					100%);
-            			-webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 					255, 0) 100%); /* For Safari */
-        		}
+        /* Image styling with consistent dimensions */
+        .recipe-image {
+            width: 100%; /* Full width of its container */
+            max-width: 600px; /* Constrain maximum size */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
 
-        		/* Footer styling */
-        		footer 
-			{
-            			margin-top: 20px;
-            			text-align: center;
-            			font-size: 0.9em;
-            			color: #777;
-        		}
+        /* Footer styling */
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
 
-        		/* Instructions menu styling */
-        		.instructions-menu 
-			{
-            			margin-top: 10px;
-            			font-size: 1.1em;
-            			color: #bf6b30;
-        		}
+        /* Instructions menu styling */
+        .instructions-menu {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #bf6b30;
+        }
 
-        		.instructions-menu a 
-			{
-            			color: #d68e59;
-            			text-decoration: none;
-            			margin: 0 10px;
-            			font-weight: bold;
-        		}
+        .instructions-menu a {
+            color: #d68e59;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
 
-        		.instructions-menu a:hover 
-			{
-            			text-decoration: underline;
-        		}
-    	</style>
+        .instructions-menu a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
 
-    	<div class="container">
-        	<h1>Chicken Rustico</h1>
-        
-        	<!-- Image of the finished dish -->
-        	<img src="Chicken_Rustico_12.jpeg" alt="Finished Dish" class="recipe-image">
+    <div class="container">
+        <h1>Chicken Rustico</h1>
 
-        	<section>
-            		<p>This Chicken Rustico recipe, inspired by Italian cuisine, is easy and pretty quick!</p>
-            		<p>Takes around 35 minutes.</p>   
-        	</section>
+        <!-- Image of the finished dish -->
+        <img src="Chicken_Rustico_12.jpeg" alt="Finished Dish" class="recipe-image">
 
-        	<section>
+        <section>
+            <p>This Chicken Rustico recipe, inspired by Italian cuisine, is easy and pretty quick!</p>
+            <p>Takes around 35 minutes.</p>
+        </section>
 
-            	<h2>Ingredients</h2>
+        <section>
+            <h2>Ingredients</h2>
+            <ul>
+                <li class="ingredient-item"><input type="checkbox" id="olive-oil"><label for="olive-oil">2 tablespoon olive oil</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="garlic"><label for="garlic">4 garlic cloves, minced</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="chicken"><label for="chicken">1 pound boneless, skinless chicken breast halves</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="mushrooms"><label for="mushrooms">1 (10 oz.) package fresh baby bella mushrooms, sliced</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="chicken-broth"><label for="chicken-broth">3/4 cup chicken broth</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="red-wine"><label for="red-wine">1/4 cup dry red wine or beef broth</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="mustard"><label for="mustard">3 tablespoon dijon mustard</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="tomatoes"><label for="tomatoes">2 medium roma tomatoes</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="artichokes"><label for="artichokes">1 (14 oz.) can artichoke hearts</label></li>
+                <li class="ingredient-item"><input type="checkbox" id="cornstarch"><label for="cornstarch">2 teaspoons cornstarch</label></li>
+            </ul>
+        </section>
 
-            	<ul>
-                	<li class="ingredient-item"><input type="checkbox" id="olive-oil"><label for="olive-oil">2 				 	tablespoon olive oil</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="garlic"><label for="garlic">4 garlic 					cloves, minced</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="chicken"><label for="chicken">1 pound 					boneless, skinless chicken breast halves</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="mushrooms"><label for="mushrooms">1 (10 					oz.) package fresh baby bella mushrooms, sliced</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="chicken-broth"><label for="chicken-					broth">3/4 cup chicken broth</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="red-wine"><label for="red-wine">1/4 cup dry 				red wine or beef broth</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="mustard"><label for="mustard">3 tablespoon 				dijon mustard</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="tomatoes"><label for="tomatoes">2 medium 				roma tomatoes</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="artichokes"><label for="artichokes">1 (14 				oz.) can artichoke hearts</label></li>
-                	<li class="ingredient-item"><input type="checkbox" id="cornstarch"><label for="cornstarch">2 					teaspoons cornstarch</label></li>
-            	</ul>
-        	</section>
-
-        	<section>
-
-            	<h2>Instructions</h2>
-
-            	<div class="instructions-menu">
-                	<a href="#step1">Step 1</a> |
-                	<a href="#step2">Step 2</a> |
-                	<a href="#step3">Step 3</a> |
-                	<a href="#step4">Step 4</a>
-            	</div>
-
-   	        	<ol>
-                	<li id="step1">
-                    		PREPARE all ingredients
-                    		<br>
-                    		<img src="Chicken_Rustico_03.jpeg" alt="Prepared Ingredients" class="recipe-image">
-                	</li>
-
-                	<li id="step2">
-                    		HEAT 1 tbsp. oil in a large nonstick skillet over medium-high heat. Cook chicken for 5 					minutes or until browned on both sides. Remove and set aside.
-                    		<br>
-                    		<img src="Chicken_Rustico_07.jpeg" alt="Cooked Chicken" class="recipe-image">
-                	</li>
-
-                	<li id="step3">
-                    		HEAT 1 tbsp. oil in the same skillet until hot. Add garlic and mushrooms. Sauté for 5 					minutes or until mushrooms are tender. Stir in broth, wine, and mustard. Return chicken to 				skillet. Add tomatoes and artichoke hearts. Bring to a boil. Reduce heat to medium-low and 				cover. Cook for 10 minutes or until chicken is no longer pink in the center.
-                    		<br>
-                    		<img src="Chicken_Rustico_09.jpeg" alt="Covered Sauce" class="recipe-image">
-                	</li>
-
-                	<li id="step4">
-                    		COMBINE cornstarch with 1 tbsp. cold water. Stir into the sauce. Heat to boiling. Cook, 				stirring, over high heat for about 1 minute or until sauce thickens. Serve with steamed 				zucchini or, if desired, cooked orzo pasta.
-                    		<br>
-                    		<img src="Chicken_Rustico_10.jpeg" alt="Prepared Ingredients" class="recipe-image">
-                	</li>
-            	</ol>
-        	</section>
+        <section>
+            <h2>Instructions</h2>
+            <div class="instructions-menu">
+                <a href="#step1">Step 1</a> |
+                <a href="#step2">Step 2</a> |
+                <a href="#step3">Step 3</a> |
+                <a href="#step4">Step 4</a>
+            </div>
+            <ol>
+                <li id="step1">
+                    PREPARE all ingredients
+                    <br>
+                    <img src="Chicken_Rustico_03.jpeg" class="recipe-image">
+                </li>
+                <li id="step2">
+                    HEAT 1 tbsp. oil in a large nonstick skillet over medium-high heat. Cook chicken for 5 minutes or until browned on both sides. Remove and set aside.
+                    <br>
+                    <img src="Chicken_Rustico_07.jpeg" class="recipe-image">
+                </li>
+                <li id="step3">
+                    HEAT 1 tbsp. oil in the same skillet until hot. Add garlic and mushrooms. Sauté for 5 minutes or until mushrooms are tender. Stir in broth, wine, and mustard. Return chicken to skillet. Add tomatoes and artichoke hearts. Bring to a boil. Reduce heat to medium-low and cover. Cook for 10 minutes or until chicken is no longer pink in the center.
+                    <br>
+                    <img src="Chicken_Rustico_09.jpeg" class="recipe-image">
+                </li>
+                <li id="step4">
+                    COMBINE cornstarch with 1 tbsp. cold water. Stir into the sauce. Heat to boiling. Cook, stirring, over high heat for about 1 minute or until sauce thickens. Serve with steamed zucchini or, if desired, cooked orzo pasta.
+                    <br>
+                    <img src="Chicken_Rustico_10.jpeg" alt="Prepared Ingredients" class="recipe-image">
+                </li>
+            </ol>
+        </section>
 
         <footer>
-            	<p>&copy; 2024 Aaron's Chicken Rustico Recipe. All rights reserved.</p>
+            <p>&copy; 2024 Aaron's Chicken Rustico Recipe. All rights reserved.</p>
         </footer>
-
-    	</div>
+    </div>
 </body>
+
 </html>
